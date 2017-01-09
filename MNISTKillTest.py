@@ -135,4 +135,3 @@ while True:
     except tf.errors.DeadlineExceededError:
         print("Successfully timed out!")
         print("Update op...")
-        sess.run([opt._update_op])
