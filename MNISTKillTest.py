@@ -127,14 +127,15 @@ def kill_session():
 Timer(7, kill_session).start()
 Timer(5, interval_updates).start()
 
-while True:
-    try:
+if job == "worker":
+    while True:
+        try:
 
-        feed_dict = mnist.fill_feed_dict(dataset, images, labels, 128)
-        loss = sess.run([train_op], feed_dict=feed_dict)
-        printout_str = "Loss: %f" % loss[0]
-        print(printout_str)
+            feed_dict = mnist.fill_feed_dict(dataset, images, labels, 128)
+            loss = sess.run([train_op], feed_dict=feed_dict)
+            printout_str = "Loss: %f" % loss[0]
+            print(printout_str)
 
-    except tf.errors.DeadlineExceededError:
-        print("Successfully timed out!")
-        print("Update op...")
+        except tf.errors.DeadlineExceededError:
+            print("Successfully timed out!")
+            print("Update op...")
