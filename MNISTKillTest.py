@@ -122,7 +122,7 @@ def interval_updates():
 
 def kill_session():
     sess.kill()
-    Timer(.5, kill_session).start()
+    Timer(.1, kill_session).start()
 
 if job == "worker":
     Timer(7, kill_session).start()
