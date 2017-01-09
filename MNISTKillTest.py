@@ -117,7 +117,7 @@ def interval_updates():
     try:
         sess.run([opt._update_op])
     except:
-        pass
+        print("Unexpected error:", sys.exc_info()[0])
     Timer(1, interval_updates).start()
 
 def kill_session():
