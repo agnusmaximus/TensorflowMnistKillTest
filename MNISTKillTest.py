@@ -119,7 +119,7 @@ def interval_updates():
 
 def kill_session():
     sess.kill()
-    Timer(7, kill_session).start()
+    Timer(.3, kill_session).start()
 
 Timer(7, kill_session).start()
 Timer(5, interval_updates).start()
