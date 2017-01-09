@@ -139,3 +139,5 @@ if job == "worker":
         except tf.errors.DeadlineExceededError:
             print("Successfully timed out!")
             print("Update op...")
+else:
+    server.join()
