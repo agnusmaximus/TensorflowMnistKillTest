@@ -118,11 +118,11 @@ def interval_updates():
         sess.run([opt._update_op])
     except:
         pass
-    Timer(.3, interval_updates).start()
+    Timer(1, interval_updates).start()
 
 def kill_session():
     sess.kill()
-    Timer(.3, kill_session).start()
+    Timer(1, kill_session).start()
 
 Timer(7, kill_session).start()
 Timer(5, interval_updates).start()
