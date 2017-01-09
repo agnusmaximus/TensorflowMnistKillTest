@@ -115,7 +115,7 @@ print("--------------------------------")
 
 def interval_updates():
     sess.run([opt._update_op])
-    Timer(5, interval_updates).start()
+    Timer(.3, interval_updates).start()
 
 def kill_session():
     sess.kill()
