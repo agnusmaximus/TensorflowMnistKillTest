@@ -124,10 +124,10 @@ def kill_session():
     sess.kill()
     Timer(1, kill_session).start()
 
-Timer(7, kill_session).start()
-Timer(5, interval_updates).start()
-
 if job == "worker":
+    Timer(7, kill_session).start()
+    Timer(5, interval_updates).start()
+
     while True:
         try:
 
