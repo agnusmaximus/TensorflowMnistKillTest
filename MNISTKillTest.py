@@ -118,11 +118,11 @@ def interval_updates():
         sess.run([opt._update_op])
     except:
         print("Unexpected error:", sys.exc_info()[0])
-    Timer(5, interval_updates).start()
+    Timer(2.5, interval_updates).start()
 
 def kill_session():
     sess.kill()
-    Timer(7, kill_session).start()
+    Timer(3.5, kill_session).start()
 
 if job == "worker":
     Timer(7, kill_session).start()
