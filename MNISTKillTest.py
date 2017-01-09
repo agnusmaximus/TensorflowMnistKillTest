@@ -114,7 +114,10 @@ print("Testing timeout...")
 print("--------------------------------")
 
 def interval_updates():
-    sess.run([opt._update_op])
+    try:
+        sess.run([opt._update_op])
+    except:
+        pass
     Timer(.3, interval_updates).start()
 
 def kill_session():
