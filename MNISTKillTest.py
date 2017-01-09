@@ -113,11 +113,16 @@ sess = sv.prepare_or_wait_for_session(server.target, config=cfg)
 print("Testing timeout...")
 print("--------------------------------")
 
+def interval_updates():
+    sess.run([opt._update_op])
+    Timer(5, kill_session).start()
+
 def kill_session():
     sess.kill()
-    Timer(10, kill_session).start()
+    Timer(7, kill_session).start()
 
-Timer(10, kill_session).start()
+Timer(7, kill_session).start()
+Timer(5, kill_session).start()
 
 while True:
     try:
