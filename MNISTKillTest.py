@@ -122,7 +122,7 @@ def kill_session():
     Timer(7, kill_session).start()
 
 Timer(7, kill_session).start()
-Timer(5, kill_session).start()
+Timer(5, interval_updates).start()
 
 while True:
     try:
