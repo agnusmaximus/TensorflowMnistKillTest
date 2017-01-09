@@ -29,7 +29,7 @@ import mnist_data
 import mnist
 from sync_replicas_optimizer_modified import TimeoutReplicasOptimizer
 
-# (python test 0 ps > /tmp/output2 2>&1 &) && python test 0 worker
+# (rm -rf MNISTKillTest.py_logdir) && (python MNISTKillTest.py 0 ps > /tmp/output2 2>&1 &) && (python MNISTKillTest.py 0 worker)
 
 index, job = int(sys.argv[1]), sys.argv[2]
 ps_hosts = 'localhost:1234'
@@ -115,7 +115,7 @@ print("--------------------------------")
 
 def kill_session():
     sess.kill()
-    Timer(5, kill_session).start()
+    Timer(10, kill_session).start()
 
 Timer(10, kill_session).start()
 
